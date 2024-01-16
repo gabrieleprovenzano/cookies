@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function fetchTodoAndDisplay() {
+  const todoId = 4;
+  const url = `https://jsonplaceholder.typicode.com/todos/${todoId}`;
+
+  try {
+        const response = await fetch(url);
+    const todo = await response.json();
+
+    const h2Element = document.createElement('h2');
+    h2Element.textContent = todo.title;
+
+    const checkboxElement = document.createElement('input');
+    checkboxElement.type = 'checkbox';
+    checkboxElement.checked = todo.completed;
+
+    const container = document.createElement('div');
+    container.appendChild(h2Element);
+    container.appendChild(checkboxElement);
+
+    document.body.appendChild(container);
+  } catch (error) {
+    console.error('Error fetching or displaying Todo:', error);
+  }
+}
+
+fetchTodoAndDisplay();
+    </script>
+</body>
+</html>
