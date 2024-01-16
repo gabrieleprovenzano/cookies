@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function getUserFromLocalStorage() {
+  const userJSON = localStorage.getItem('user');
+
+  if (userJSON) {
+    const user = JSON.parse(userJSON);
+    console.log('User retrieved from localStorage:', user);
+    return user;
+  } else {
+    console.log('No user data found in localStorage.');
+    return null;
+  }
+}
+    </script>
+</body>
+</html>
